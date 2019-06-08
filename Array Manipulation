@@ -1,0 +1,43 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+                    
+    public static void main(String args[])
+    {
+        Scanner scan=new Scanner(System.in);
+
+        int n= scan.nextInt();
+        int m= scan.nextInt();
+
+        long ar[]=new long[n+1];
+
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=0;
+        }
+
+        for(int i=0;i<m;i++)
+        {
+            int one=scan.nextInt();
+            int two=scan.nextInt();
+            int k=scan.nextInt();
+             ar[one - 1] += k;
+            ar[two] -= k;
+
+        }
+        long max=ar[0];
+        long temp=0;
+        for(int i=0;i<n;i++)
+        {
+            temp += ar[i];
+             if(temp> max) max=temp;
+        }
+    System.out.print(max);
+    }
+}
